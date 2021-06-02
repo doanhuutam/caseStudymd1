@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>case study</title>
+</head>
+<body background="http://imageshack.com/a/img924/2186/1uwQBe.gif">
+<style>
+    table{
+        margin-left: 400px;
+        margin-top: 20px;
+        text-align: center;
+
+        
+
+    }
+    img{
+        width: 200px;
+        height:100px;
+    }#no{
+        color: red;
+        text-decoration-line: underline;
+         }
+</style>
+<h2 align="center">TRIỂN LÃM DỊCH VỤ TƯƠNG LAI</h2>
+<table border="2">
+<table border="1">
+    <th>SỐ THỨ TỰ</th>
+    <th>TÊN DỊCH VỤ</th>
+    <th>HÌNH ẢNH</th>
+    <th>GIÁ DỊCH VỤ</th>
+    <th>XOÁ DỊCH VỤ</th>
+    <th>CHI TIẾT</th>
+    <tbody id="hihi">
+
+    </tbody>
+</table>
+
+<script>
+    class Myproduct {
+        constructor(id, name, img, money) {
+            this.id = id;
+            this.name = name;
+            this.img = img;
+            this.money = money;
+        }
+    }
+
+    let product1 = new Myproduct(1, 'Vé trở về tuổi thơ','https://trovetuoitho.com/wp-content/uploads/2019/07/Tu%E1%BB%95i-th%C6%A1-l%C3%A0-n%C6%A1i-%C3%AAm-%C4%91%E1%BB%81m-nh%E1%BA%A5t.jpg', 200)
+    let product2 = new Myproduct(2, 'DL gặt lúa sông hồng','https://img.thuthuatphanmem.vn/uploads/2018/10/05/anh-dep-canh-dong-lua-dang-thu-hoach_044838338.jpg','MIỄN PHÍ')
+    let product3 = new Myproduct(3, 'KH codegym','https://vanhoadoanhnghiepvn.vn/wp-content/uploads/2020/10/CodeGym.jpg' ,60000000)
+    let product4 = new Myproduct(4, 'KH telesale','https://bizweb.dktcdn.net/thumb/1024x1024/100/323/465/files/thiet-ke-khong-ten-5fe257fb-7231-41a0-bf66-c93c5ea2f8af.jpg?v=1593422614345',2000000)
+    let product5 = new Myproduct(5, 'Bữa cơm gia đình','https://blogradio.vn/uploads/cms/source/2020/19/gia_dinh.jpg',3000000)
+    let abc=document.getElementById('hihi');
+    let pro = [product1, product2, product3, product4, product5]
+    showlist()
+
+
+    function addProduct() {
+        let id = pro.length + 1;
+        let image = document.getElementById('toi').value;
+        if (image.length == 0) {
+            alert('hãy nhập đầy đủ thông tin')
+            return;
+        }
+        let name = document.getElementById('la').value;
+        if (name.length == 0) {
+            alert('hãy nhập đầy đủ thông tin')
+            return;
+        }
+        let money = document.getElementById('ai').value;
+        if (money.length == 0) {
+            alert('hãy nhập đầy đủ thông tin')
+            return;
+        }
+        let productnew = new Myproduct(id , name, image, money)
+        //hoỉ về cách ddawtj tên biến
+        pro.push(productnew)
+        showlist()
+    }
+    function showlist() {
+        let str = ''
+        for (let i = 0; i < pro.length; i++) {
+            str += `<tr>
+         <td>${pro[i].id}</td>
+         <td>${pro[i].name}</td>
+         <td><img src=   ${pro[i].img}  alt="hình ảnh"></td>
+         <td id="no" >${pro[i].money}</td>
+         <td><button onclick="deletepro()">delete</button></td>
+         <td><button><a href="tuoitho.html" target="_blank">chi tiết</a></button></td>
+                    </tr>`
+        }
+        document.getElementById('hihi').innerHTML = str;
+    }
+    function deletepro(index) {
+        pro.splice(pro.index,1)
+        showlist()
+    }
+    // function maket(index){
+    //     let count=0
+    //     pro.splice(index,1)
+    //     count++
+    //     showlist()
+    // // }
+
+    function lV(){
+        document.getElementById('hi').value=count;
+console.log()
+    }
+
+
+
+</script>
+</table>
+</body>
+</html>
